@@ -259,12 +259,26 @@ export default function Kurta() {
               onChange={(e) => setPrice(e.target.value)}
               className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none"
             />
-            <label className="block text-gray-700 font-medium mt-2">Upload Image</label>
-            <input
-              type="file"
-              accept="image/*"
-              onChange={(e) => handleImageSelect(e.target.files?.[0])}
-            />
+           
+            <div>
+              <label className="inline-flex items-center gap-3 px-6 py-2 bg-purple-700 text-white rounded-full cursor-pointer hover:bg-purple-800 transition shadow">
+                Upload Image
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={(e) => handleImageSelect(e.target.files?.[0])}
+                  className="hidden"
+                />
+              </label>
+
+              {imagePreview && (
+                <img
+                  src={imagePreview}
+                  alt="Preview"
+                  className="mt-4 w-full h-40 object-cover rounded-lg shadow"
+                />
+              )}
+            </div>
             {imagePreview && (
               <img
                 src={imagePreview}
